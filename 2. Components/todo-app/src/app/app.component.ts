@@ -9,6 +9,7 @@ import { Task } from 'src/models/task.model';
 })
 export class AppComponent {
     selectedTask: Task | undefined;
+    editedTitle: string = '';
   
   constructor(public taskService: TaskService) {
     
@@ -26,8 +27,16 @@ export class AppComponent {
     this.selectedTask = task;
   }
 
-  edit(task:Task){
-   
+  update(){
+   if(this.selectedTask){
+    // this.selectedTask.title = this.editedTitle;
+    this.taskService.update(this.selectedTask, this.editedTitle);
+    this.selectedTask = undefined;
+   }
+  }
+
+  cancel(){
+    this.selectedTask = undefined;
   }
 
 

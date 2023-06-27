@@ -34,7 +34,10 @@ export class TaskService {
     }
   }
 
-  edit(task: Task){
-    
+  update(task: Task, title: string){
+    const index = this.tasks.findIndex(t => t.title === task.title);
+    if(index != -1){
+      this.tasks[index].title = title;
+    }
   }
 }
