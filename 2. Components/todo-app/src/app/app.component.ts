@@ -8,7 +8,7 @@ import { Task } from 'src/models/task.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  complete:string =  '';
+    selectedTask: Task | undefined;
   
   constructor(public taskService: TaskService) {
     
@@ -21,4 +21,14 @@ export class AppComponent {
   deleteTask(task: Task){
     this.taskService.delete(task);
   }
+
+  showEdit(task:Task){
+    this.selectedTask = task;
+  }
+
+  edit(task:Task){
+   
+  }
+
+
 }

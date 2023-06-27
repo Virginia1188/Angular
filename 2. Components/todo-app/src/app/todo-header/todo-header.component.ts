@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { TaskService } from '../task.service';
-// import { OutletContext } from '@angular/router';
 
 @Component({
   selector: 'app-todo-header',

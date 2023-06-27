@@ -7,10 +7,19 @@
             <li *ngFor="let task of taskService.tasks" [ngClass]="{'completed': task.completed}"> {{task.title}}
                 <div class="tools">
                     <button class="complete" (click)="completed(task)"><i class="fas fa-check"></i></button>
-                    <button class="edit">EDIT</button>
+                    <button class="edit" (click)="showEdit(task)" (click)="edit(task)">EDIT</button>
                     <button class="delete" (click)="deleteTask(task)"><i class="fas fa-times"></i></button>
                 </div>
             </li>
         </ul>
+    </div>
+</div>
+<div class="popup" [ngStyle]="{'display': selectedTask ? 'flex' : 'none'}" >
+    <h3>Edit your todo:</h3>
+    <div class="popup-body">
+        <p class="popup-info"></p>
+        <input type="text" class="popup-input" value="{{selectedTask?.title}}" placeholder="Wprowadź nową treść zadania...">
+        <button class="popup-btn accept">Update</button>
+        <button class="popup-btn cancel">Cancel</button>
     </div>
 </div>
