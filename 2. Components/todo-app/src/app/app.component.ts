@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TaskService } from './task.service';
+import { Task } from 'src/models/task.model';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,13 @@ import { TaskService } from './task.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public taskService: TaskService) {}
+  complete:string =  '';
+  
+  constructor(public taskService: TaskService) {
+    
+  }
+
+  completed(task:Task) {
+    this.taskService.isCompleted(task);
+  }
 }

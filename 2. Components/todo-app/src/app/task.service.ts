@@ -6,9 +6,24 @@ import { Task } from 'src/models/task.model';
 })
 export class TaskService {
 
-  tasks: string[] = [];
+  tasks: Task[] = [];
   
   addTask(task: string){
-    this.tasks.push(task);
+   
+    if (task.trim() !== '') {
+
+      const newTask: Task ={
+        title: task.trim(),
+        completed: false
+      }
+     
+      this.tasks.push(newTask);
+    }
+  
+  }
+
+  isCompleted(task:Task) {
+    task.completed = !task.completed;
+    
   }
 }

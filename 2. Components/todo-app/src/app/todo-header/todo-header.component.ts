@@ -8,16 +8,16 @@ import { TaskService } from '../task.service';
   styleUrls: ['./todo-header.component.css']
 })
 export class TodoHeaderComponent {
-  newTask: string = '';
+  taskInput: string = '';
 
   constructor(private taskService: TaskService) {}
 
   addTask() {
-    console.log(this.newTask);
-    
-    if (this.newTask.trim() !== '') {
-      this.taskService.addTask(this.newTask.trim());
-      this.newTask = '';
+    console.log(this.taskInput);
+    const newTask = this.taskInput.trim();
+    if (newTask !== '') {
+      this.taskService.addTask(newTask);
+      this.taskInput = '';
     }
   }
 }
