@@ -17,4 +17,8 @@ export class AppComponent {
   completed(task:Task) {
     this.taskService.isCompleted(task);
   }
+
+  deleteTask(task: Task){
+    this.taskService.delete(task);
+  }
 }

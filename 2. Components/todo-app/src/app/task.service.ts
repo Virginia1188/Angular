@@ -22,8 +22,15 @@ export class TaskService {
   
   }
 
-  isCompleted(task:Task) {
+  isCompleted(task:Task): void {
     task.completed = !task.completed;
     
+  }
+
+  delete( task: Task): void {
+    const index = this.tasks.indexOf(task);
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
+    }
   }
 }
