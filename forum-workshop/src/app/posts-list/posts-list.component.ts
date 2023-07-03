@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Post } from '../types/Post';
 
 @Component({
   selector: 'app-posts-list',
@@ -7,13 +8,21 @@ import { ApiService } from '../api.service';
   styleUrls: ['./posts-list.component.css']
 })
 export class PostsListComponent implements OnInit {
-  
-  constructor(private apiService: ApiService){}
+  isLoading: boolean = true;
+  postsList: Post[] = [];
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getPosts(5).subscribe((post) =>{
-      console.log(post);
-      
-    })
+    this.apiService.getPosts().subscribe({
+      next: (themes) => {
+        this.postsList = themes;
+        this.isLoading = false;
+      },
+      error: (err) => {
+        this.isLoading = false;
+        console.log(`Error: ${err}`);
+
+      }
+    });
   }
 }
