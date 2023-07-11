@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { UserRoutingModule } from './user/user-routing.module';
 import { UserModule } from './user/user.module';
 import { ThemeModule } from './theme/theme.module';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ThemeModule } from './theme/theme.module';
     MainComponent,
     ThemesListComponent,
     PostsListComponent,
-    HomeComponent
+    HomeComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
